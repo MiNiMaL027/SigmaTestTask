@@ -1,0 +1,6 @@
+@SigmaTestTask.Server_HostAddress = http://localhost:5027
+
+GET {{SigmaTestTask.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

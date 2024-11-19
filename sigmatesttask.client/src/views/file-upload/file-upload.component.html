@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>Upload a File</h1>
+  <div class="file-upload-container">  
+    <div>
+      <label for="fileInput">Select File:</label>
+      <input type="file" id="fileInput" (change)="onFileSelected($event)" />
+    </div>
+  
+    <div>
+      <label for="fileName">File Name:</label>
+      <input
+        type="text"
+        id="fileName"
+        [(ngModel)]="fileName"
+        placeholder="Enter a file name (optional)"
+      />
+    </div>
+  
+    <div>
+      <label for="fileDescription">File Description:</label>
+      <textarea
+        id="fileDescription"
+        [(ngModel)]="fileDescription"
+        rows="3"
+        placeholder="Enter a brief description of the file (optional)"
+      ></textarea>
+    </div>
+  
+    <div>
+      <label for="fileCategory">File Category:</label>
+      <select id="fileCategory" [(ngModel)]="fileCategory" required>
+        <option value="" disabled>Select a category</option>
+        <option value="documents">Documents</option>
+        <option value="images">Images</option>
+        <option value="videos">Videos</option>
+        <option value="others">Others</option>
+      </select>
+    </div>
+  
+    <button (click)="uploadFile()" [disabled]="!selectedFile || !fileCategory">
+      Upload
+    </button>
+    <p *ngIf="uploadStatus">{{ uploadStatus }}</p>
+  </div>
+</div>
